@@ -2,7 +2,7 @@ USE Championship;
 GO
 
 CREATE TABLE Positions (
-	id INT IDENTITY NOT NULL,
+	id INT IDENTITY,
 	[name] VARCHAR(45) NOT NULL,
 	CONSTRAINT PK_Positions_id PRIMARY KEY (id)
 );
