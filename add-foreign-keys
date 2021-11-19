@@ -1,0 +1,37 @@
+USE Championship;
+GO
+
+ALTER TABLE Players
+ADD id_position INT NOT NULL
+CONSTRAINT FK_Players_id_position
+FOREIGN KEY (id_position)
+REFERENCES Positions (id)
+ON DELETE CASCADE;
+
+ALTER TABLE Players
+ADD id_team INT NOT NULL
+CONSTRAINT FK_Players_id_team
+FOREIGN KEY (id_team)
+REFERENCES Teams (id)
+ON DELETE CASCADE;
+
+ALTER TABLE Teams
+ADD id_coach INT NOT NULL
+CONSTRAINT FK_Teams_id_coach
+FOREIGN KEY (id_coach)
+REFERENCES Coaches (id)
+ON DELETE CASCADE;
+
+ALTER TABLE Teams
+ADD id_owner INT NOT NULL
+CONSTRAINT FK_Teams_id_owner
+FOREIGN KEY (id_owner)
+REFERENCES Owners (id)
+ON DELETE CASCADE;
+
+ALTER TABLE Games
+ADD id_studium INT NOT NULL
+CONSTRAINT FK_Games_id_studium
+FOREIGN KEY (id_studium)
+REFERENCES Studiums (id)
+ON DELETE CASCADE;
