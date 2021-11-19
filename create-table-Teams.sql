@@ -2,7 +2,7 @@ USE Championship;
 GO
 
 CREATE TABLE Teams (
-	id INT IDENTITY NOT NULL,
+	id INT IDENTITY,
 	[name] VARCHAR(45) NOT NULL,
 	city VARCHAR(45) NOT NULL,
 	founded DATE NOT NULL,
