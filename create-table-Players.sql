@@ -2,7 +2,7 @@ USE Championship;
 GO
 
 CREATE TABLE Players (
-	id INT IDENTITY NOT NULL,
+	id INT IDENTITY,
 	[name] VARCHAR(45) NOT NULL,
 	surname VARCHAR(45) NOT NULL,
 	birthday DATE NOT NULL,
