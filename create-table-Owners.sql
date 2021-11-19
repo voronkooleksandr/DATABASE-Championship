@@ -4,7 +4,7 @@ GO
 CREATE TABLE Owners (
 	id INT IDENTITY NOT NULL,
 	[name] VARCHAR(45) NOT NULL,
-  surname VARCHAR(45) NOT NULL,
+	surname VARCHAR(45) NOT NULL,
 	birthday DATE NOT NULL,
 	CONSTRAINT PK_Owners_id PRIMARY KEY (id)
 );
