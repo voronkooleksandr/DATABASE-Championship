@@ -1,8 +1,10 @@
 USE Championship;
 GO
 
+DROP TABLE IF EXISTS Teams;
+
 CREATE TABLE Teams (
-	id INT IDENTITY(1, 1),
+	id INT IDENTITY(1, 1) PRIMARY KEY,
 	[name] VARCHAR(45) NOT NULL,
 	city VARCHAR(45) NOT NULL,
 	founded DATE NOT NULL,
