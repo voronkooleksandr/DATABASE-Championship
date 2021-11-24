@@ -1,12 +1,13 @@
 USE Championship;
 GO
 
+DROP TABLE IF EXISTS Stadiums;
+
 CREATE TABLE Stadiums (
-	id INT IDENTITY(1, 1),
+	id INT CONSTRAINT PK_Stadiums_id PRIMARY KEY IDENTITY(1, 1),
 	[name] VARCHAR(100) NOT NULL,
         city VARCHAR(45) NOT NULL,
-        capacity INT NOT NULL,
-	CONSTRAINT PK_Stadiums_id PRIMARY KEY (id)
+        capacity INT NOT NULL
 );
 
 INSERT INTO Stadiums ([name], city, capacity)
