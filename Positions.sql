@@ -1,10 +1,11 @@
 USE Championship;
 GO
 
+DROP TABLE IF EXISTS Positions;
+
 CREATE TABLE Positions (
-	id INT IDENTITY(1, 1),
-	[name] VARCHAR(45) NOT NULL,
-	CONSTRAINT PK_Positions_id PRIMARY KEY (id)
+	id INT CONSTRAINT PK_Positions_id PRIMARY KEY IDENTITY(1, 1),
+	[name] VARCHAR(45) NOT NULL
 );
 
 INSERT INTO Positions ([name])
