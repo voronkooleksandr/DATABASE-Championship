@@ -93,3 +93,17 @@ VALUES
 ('Верес', 'Рівне', '1957-01-01', 14, 14),
 ('Колос', 'Ковалівка', '2012-01-01', 15, 15),
 ('Металіст 1925', 'Харків', '2016-08-17', 16, 16);
+
+DROP TABLE IF EXISTS Positions;
+
+CREATE TABLE Positions (
+	id INT CONSTRAINT PK_Positions_id PRIMARY KEY IDENTITY(1, 1),
+	[name] VARCHAR(45) NOT NULL
+);
+
+INSERT INTO Positions ([name])
+VALUES 
+('воротар'),
+('захисник'),
+('півзахисник'),
+('нападник');
