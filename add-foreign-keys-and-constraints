@@ -15,20 +15,6 @@ FOREIGN KEY (id_team)
 REFERENCES Teams (id)
 ON DELETE CASCADE;
 
-ALTER TABLE Teams
-ADD id_coach INT NOT NULL
-CONSTRAINT FK_Teams_id_coach
-FOREIGN KEY (id_coach)
-REFERENCES Coaches (id)
-ON DELETE CASCADE;
-
-ALTER TABLE Teams
-ADD id_owner INT NOT NULL
-CONSTRAINT FK_Teams_id_owner
-FOREIGN KEY (id_owner)
-REFERENCES Owners (id)
-ON DELETE CASCADE;
-
 ALTER TABLE Games
 ADD id_stadium INT NOT NULL
 CONSTRAINT FK_Games_id_stadium
