@@ -1,13 +1,14 @@
 USE Championship;
 GO
 
+DROP TABLE IF EXISTS Owners;
+
 CREATE TABLE Owners (
-	id INT IDENTITY(1, 1),
+	id INT CONSTRAINT PK_Owners_id PRIMARY KEY IDENTITY(1, 1),
 	[name] VARCHAR(45) NOT NULL,
 	surname VARCHAR(45) NOT NULL,
 	birthday DATE NOT NULL,
-	country VARCHAR(45) NOT NULL,
-	CONSTRAINT PK_Owners_id PRIMARY KEY (id)
+	country VARCHAR(45) NOT NULL
 );
 
 INSERT INTO Owners ([name], surname, birthday, country)
