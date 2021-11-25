@@ -61,6 +61,21 @@ VALUES
 ('Андрій', 'Засуха', '1986-10-30', 'Україна'),
 ('Ярослав', 'Вдовенко', '1973-08-18', 'Україна');
 
+DROP TABLE IF EXISTS Positions;
+
+CREATE TABLE Positions (
+	id INT CONSTRAINT PK_Positions_id PRIMARY KEY IDENTITY(1, 1),
+	[name] VARCHAR(45) NOT NULL
+);
+
+INSERT INTO Positions ([name])
+VALUES 
+('воротар'),
+('захисник'),
+('півзахисник'),
+('нападник');
+
+
 DROP TABLE IF EXISTS Teams;
 
 CREATE TABLE Teams (
@@ -94,19 +109,7 @@ VALUES
 ('Колос', 'Ковалівка', '2012-01-01', 15, 15),
 ('Металіст 1925', 'Харків', '2016-08-17', 16, 16);
 
-DROP TABLE IF EXISTS Positions;
 
-CREATE TABLE Positions (
-	id INT CONSTRAINT PK_Positions_id PRIMARY KEY IDENTITY(1, 1),
-	[name] VARCHAR(45) NOT NULL
-);
-
-INSERT INTO Positions ([name])
-VALUES 
-('воротар'),
-('захисник'),
-('півзахисник'),
-('нападник');
 
 DROP TABLE IF EXISTS Players;
 
