@@ -241,3 +241,20 @@ VALUES
 ('Педріньйо', 'Педріньйо', '1998-04-13', 'Бразилія', 17000000, 3, 2),
 ('Жуніор', 'Мораес', '1987-04-04', 'Україна', 2000000, 4, 2),
 ('Лассіна', 'Траоре', '2001-01-12', 'Буркіна-Фасо', 9000000, 4, 2);
+
+DROP TABLE IF EXISTS Games;
+
+CREATE TABLE Games (
+  id INT CONSTRAINT PK_Games_id PRIMARY KEY IDENTITY(1, 1),
+  id_team_1 INT NOT NULL,
+  id_team_2 INT NOT NULL,
+  score_team_1 INT NOT NULL,
+  score_team_2 INT NOT NULL,
+  points_team_1 INT NOT NULL,
+  points_team_2 INT NOT NULL,
+  data_play DATE NOT NULL,
+  CONSTRAINT FK_Games_id_team_1 FOREIGN KEY (id_team_1) REFERENCES Teams (id),
+  CONSTRAINT FK_Games_id_team_2 FOREIGN KEY (id_team_2) REFERENCES Teams (id),
+  CONSTRAINT UQ_Games_id_team_1 UNIQUE (id_team_1),
+  CONSTRAINT UQ_Games_id_team_2 UNIQUE (id_team_2)
+);
