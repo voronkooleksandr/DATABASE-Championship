@@ -88,9 +88,7 @@ CREATE TABLE Games (
   CONSTRAINT FK_Games_id_team_1 FOREIGN KEY (id_team_1) REFERENCES Teams (id),
   CONSTRAINT FK_Games_id_team_2 FOREIGN KEY (id_team_2) REFERENCES Teams (id),
   CONSTRAINT FK_Games_id_stadium FOREIGN KEY (id_stadium) REFERENCES Stadiums (id),
-  CONSTRAINT UQ_Games_id_team_1 UNIQUE (id_team_1),
-  CONSTRAINT UQ_Games_id_team_2 UNIQUE (id_team_2),
-  CONSTRAINT CK_Games_id_stadium CHECK (id_stadium = Games.id_team_1 )
+  CONSTRAINT CK_Games_id_stadium CHECK (id_stadium = Games.id_team_1)
   );
 
 -- Вставлення даних до усіх таблиць і їх запуск одночасно
@@ -532,7 +530,7 @@ VALUES
 -- 10 тур
 (0, 2, 0, 3, '2021-10-01', 3, 12, 3),
 (2, 1, 3, 0, '2021-10-02', 15, 8, 15),
-(0, 1, 0, 3, '2021-10-02', 11, 6, 1),
+(0, 1, 0, 3, '2021-10-02', 11, 6, 11),
 (3, 0, 3, 0, '2021-10-02', 5, 7, 5),
 (0, 0, 1, 1, '2021-10-03', 14, 10, 14),
 (2, 0, 3, 0, '2021-10-03', 9, 13, 9),
