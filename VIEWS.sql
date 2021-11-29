@@ -3,14 +3,15 @@ GO
 
 -- Показ у віртуальній таблиці команд, які грають між собою, дату гри та місце проведення (стадіон)
 
-CREATE VIEW GamesTeamsStadiums 
-AS SELECT Games.team_1 AS Team_1,
+CREATE VIEW GamesTeamsStadiums
+AS 
+SELECT Games.team_1 AS Team_1,
        Games.team_2 AS Team_2,
-       Stadiums.id_stadium_1 AS Stadium,
+       Stadiums.id_stadium AS Stadium,
        Games.data_play AS GameDate
-FROM Games JOIN Teams ON Games.team_1 = Teams.id
-JOIN Teams ON Games.team_2 = Teams.id
-JOIN Studiums ON Stadiums.id_stadium_1 = Stadiums.id;
+FROM Games JOIN Teams ON Games.team_1 = Teams (id)
+JOIN Teams ON Games.team_2 = Teams (id)
+JOIN Studiums ON Games.id_stadium = Stadiums (id);
 
 -- Додання нового гравця до представлення, що автоматично додасть також цього гравця в нашу основну таблицю
 
