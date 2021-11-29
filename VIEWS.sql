@@ -13,6 +13,17 @@ FROM Games JOIN Teams ON Games.team_1 = Teams (id)
 JOIN Teams ON Games.team_2 = Teams (id)
 JOIN Studiums ON Games.id_stadium = Stadiums (id);
 
+CREATE VIEW GamesTeamsStadiums
+AS 
+SELECT T1.name AS Team_1,
+       T2.name AS Team_2,
+       S.name AS Stadium,
+       G.data_play AS GameDate
+FROM Games AS G 
+JOIN Teams AS T1 ON G.id_team_1 = T1.id
+JOIN Teams AS T2 ON  G.id_team_2 = T2.id
+JOIN Stadiums AS S ON G.id_stadium = S.id;
+
 -- Додання нового гравця до представлення, що автоматично додасть також цього гравця в нашу основну таблицю
 
 CREATE VIEW PlayerNew
