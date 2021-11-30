@@ -36,8 +36,8 @@ AS SELECT Players.[name] AS Name_Player,
           Players.id_team AS Team
 FROM Players;           
 
-INSERT INTO PlayerNew (Name_Player, Surname, Birthday, Country, Position, Team)
-VALUES ('Андрій', 'Ярмоленко', '1989-10-23', 'Україна', 2000000, 3, 1);
+INSERT INTO PlayerNew (Name_Player, Surname, Birthday, Country, Cost, Position, Team)
+VALUES ('Андрій', 'Ярмоленко', '1989-10-23', 'Україна', 20000000, 3, 1);
 
 -- Збільшення з/п гравцю, якого щойно додали чи старому, який був в осн. таблиці, де шукаємо його по імені чи ID
 
