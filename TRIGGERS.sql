@@ -31,13 +31,17 @@ CREATE TRIGGER NewPlayersInfo_INSERT
 ON Players
 AFTER INSERT
 AS
+BEGIN
 INSERT INTO NewPlayersInfo (new_players_id, information)
 SELECT id, 'Новий гравець ' + surname + ' буде грати в нашому чемпіонаті'
-FROM inserted;
+FROM inserted
+END;
 
 INSERT INTO Players ([name], surname, birthday, country, cost, id_position, id_team)
 VALUES
-('Ліонель', 'Мессі', '1986-11-13', 'Аргентина', 80000000, 4, 1)
+('Ліонель', 'Мессі', '1986-11-13', 'Аргентина', 80000000, 4, 1);
+
+SELECT * FROM NewPlayersInfo;
 
 
 
