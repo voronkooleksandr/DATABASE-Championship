@@ -19,27 +19,27 @@ GO
 
 DROP TABLE IF EXISTS Foreigner;
 
-CREATE TABLE NewTeams (
+CREATE TABLE NewPlayersInfo (
 id INT CONSTRAINT PK_NewTeams_id PRIMARY KEY IDENTITY(1, 1),
-new_team_id INT NOT NULL,
-[name] VARCHAR (30) NOT NULL,
-city VARCHAR (45) NOT NULL,
+new_players_id INT NOT NULL,
+information VARCHAR(200) NOT NULL,
 date_connected DATE NOT NULL DEFAULT GETDATE()
 );
 
-CREATE TRIGGER NewTeams_INSERT
-ON Teams
+CREATE TRIGGER NewPlayersInfo_INSERT
+ON Players
 AFTER INSERT
 AS
-INSERT INTO NewTeams (new_team_id, [name], city)
-SELECT id, 'Нова команда ' + [name], city,  '' буде грати в нашому чемпіонаті'
+INSERT INTO NewPlayersInfo (new_players_id, information)
+SELECT id, 'Новий гравець ' + Players.[name] + Players.[name] + ' буде грати в нашому чемпіонаті'
 FROM inserted;
 
-INSERT INTO Players ([name], surname, birthday, country, cost, id_position, id_team)
-VALUES
-('Кріштіано', 'Роналду', '1985-04-29', 'Португалія', 75000000, 4, 2);
 
-SELECT * FROM Players;
+INSERT INTO Players ([name], city, founded, id_coach, id_owner)
+VALUES 
+('Нива', 'Тернопіль', '1978-01-01', 1, 1),
 
-SELECT * FROM Foreigner;
+SELECT * FROM NewPlayersInfo;
+
+
 
