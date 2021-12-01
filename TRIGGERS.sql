@@ -14,32 +14,30 @@ INSERT INTO Players ([name], surname, birthday, country, cost, id_position, id_t
 VALUES
 ('Сергій', 'Ребров', '1975-04-22', 'Україна', 19000000, 4, 1);
 
-USE Championship;
-GO
+Нова таблиця для нових гравців, які приходять в команду
 
-DROP TABLE IF EXISTS Foreigner;
+DROP TABLE IF EXISTS NewPlayersInfo;
 
 CREATE TABLE NewPlayersInfo (
-id INT CONSTRAINT PK_NewTeams_id PRIMARY KEY IDENTITY(1, 1),
+id INT CONSTRAINT PK_NewPlayersInfo_id PRIMARY KEY IDENTITY(1, 1),
 new_players_id INT NOT NULL,
 information VARCHAR(200) NOT NULL,
 date_connected DATE NOT NULL DEFAULT GETDATE()
 );
+
+-- додавання нового гравця, який показується в таблиці NewPlayersInfo
 
 CREATE TRIGGER NewPlayersInfo_INSERT
 ON Players
 AFTER INSERT
 AS
 INSERT INTO NewPlayersInfo (new_players_id, information)
-SELECT id, 'Новий гравець ' + Players.[name] + Players.[name] + ' буде грати в нашому чемпіонаті'
+SELECT id, 'Новий гравець ' + surname + ' буде грати в нашому чемпіонаті'
 FROM inserted;
 
-
-INSERT INTO Players ([name], city, founded, id_coach, id_owner)
-VALUES 
-('Нива', 'Тернопіль', '1978-01-01', 1, 1),
-
-SELECT * FROM NewPlayersInfo;
+INSERT INTO Players ([name], surname, birthday, country, cost, id_position, id_team)
+VALUES
+('Ліонель', 'Мессі', '1986-11-13', 'Аргентина', 80000000, 4, 1)
 
 
 
