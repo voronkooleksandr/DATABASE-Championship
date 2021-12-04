@@ -3,7 +3,9 @@ GO
 
 -- при додані нового гравця його вартість має зрости на 10%
 
-CREATE TRIGGER Players_INSERT_UPDATE
+DROP IF EXISRS TRIGGER Players_INSERT_UPDATE_cost
+
+CREATE TRIGGER Players_INSERT_UPDATE_cost
 ON Players
 AFTER INSERT, UPDATE 
 AS UPDATE Players
