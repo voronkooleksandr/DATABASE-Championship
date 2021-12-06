@@ -5,7 +5,7 @@ GO
 
 CREATE TRIGGER Players_INSERT_UPDATE_cost
 ON Players
-AFTER INSERT, UPDATE 
+INSTEAD OF INSERT
 AS UPDATE Players
 SET cost = cost + cost * 0.10
 WHERE id = (SELECT id FROM inserted);
