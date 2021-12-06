@@ -14,6 +14,7 @@ JOIN Teams AS T2 ON  G.id_team_2 = T2.id
 JOIN Stadiums AS S ON G.id_stadium = S.id;
 
 -- Додання нового гравця до представлення, що автоматично додасть також цього гравця в нашу основну таблицю
+-- !!!! Конфліктує з тригером дане представлення !!!!
 
 CREATE VIEW PlayerNew
 AS SELECT P.[name] AS Name_Player,
