@@ -21,10 +21,11 @@ ON Players
 AFTER INSERT
 AS
 BEGIN
-INSERT INTO NewPlayersInfo (new_players_id, information)
-SELECT id, 'Новий гравець ' + surname + ' буде грати в нашому чемпіонаті'
+INSERT INTO NewPlayersInfo (new_players_id, information, date_connected)
+SELECT CURRENT_USER, 'Новий гравець ' + surname + ' буде грати в нашому чемпіонаті', CURRENT_TIMESTAMP
 FROM inserted
 END;
+
 
 INSERT INTO Players ([name], surname, birthday, country, cost, id_position, id_team)
 VALUES
