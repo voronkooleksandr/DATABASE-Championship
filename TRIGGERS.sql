@@ -14,18 +14,17 @@ INSERT INTO Players ([name], surname, birthday, country, cost, id_position, id_t
 VALUES
 ('Сергій', 'Ребров', '1975-04-22', 'Україна', 19000000, 4, 1);
 
--- додавання нового гравця, який показується в таблиці NewPlayersInfo
+-- додавання нового гравця, який показується в таблиці NewPlayersInfo ------ПРАЦЮЄ ТРИГЕР ------
 
-CREATE TRIGGER NewPlayersInfo_INSERT
+CREATE OR ALTER TRIGGER NewPlayersInfo_INSERT
 ON Players
 AFTER INSERT
 AS
 BEGIN
 INSERT INTO NewPlayersInfo (new_players_id, information, date_connected)
-SELECT CURRENT_USER, 'Новий гравець ' + surname + ' буде грати в нашому чемпіонаті', CURRENT_TIMESTAMP
+SELECT id, 'Новий гравець ' + surname + ' буде грати в нашому чемпіонаті', GETDATE()
 FROM inserted
 END;
-
 
 INSERT INTO Players ([name], surname, birthday, country, cost, id_position, id_team)
 VALUES
